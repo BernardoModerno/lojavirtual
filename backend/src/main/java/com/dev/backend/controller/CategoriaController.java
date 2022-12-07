@@ -19,13 +19,13 @@ import com.dev.backend.service.CategoriaService;
 @RestController
 @RequestMapping("/api/categoria")
 public class CategoriaController {
-
+    
     @Autowired
     private CategoriaService categoriaService;
 
     @GetMapping("/")
     public List<Categoria> buscarTodos() {
-        return categoriaService.buscarTodos();
+       return categoriaService.buscarTodos();
     }
 
     @PostMapping("/")

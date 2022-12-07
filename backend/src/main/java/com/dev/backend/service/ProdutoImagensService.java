@@ -33,19 +33,19 @@ public class ProdutoImagensService {
         Produto produto = produtoRepository.findById(idProduto).get();
         ProdutoImagens objeto = new ProdutoImagens();
 
-        try {
-            if (!file.isEmpty()) {
-                byte[] bytes = file.getBytes();
+		try {
+			if (!file.isEmpty()) {
+				byte[] bytes = file.getBytes();
                 String nomeImagem = String.valueOf(produto.getId()) + file.getOriginalFilename();
-                Path caminho = Paths
-                        .get("c:/imagens/" + nomeImagem);
-                Files.write(caminho, bytes);
+				Path caminho = Paths
+						.get("c:/imagens/" + nomeImagem);
+				Files.write(caminho, bytes);
                 objeto.setNome(nomeImagem);
 
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
         objeto.setProduto(produto);
         objeto.setDataCriacao(new Date());

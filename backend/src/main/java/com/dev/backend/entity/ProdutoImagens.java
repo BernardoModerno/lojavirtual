@@ -24,8 +24,9 @@ public class ProdutoImagens {
     private Long id;
 
     private String nome;
+
     @ManyToOne
-    @JoinColumn(name = "idProduto")
+    @JoinColumn(name="idProduto")
     private Produto produto;
 
     @Temporal(TemporalType.TIMESTAMP)

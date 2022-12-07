@@ -2,6 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,18 +22,18 @@ import com.dev.backend.service.ProdutoImagensService;
 @RestController
 @RequestMapping("/api/produtoImagens")
 public class ProdutoImagensController {
-
+    
     @Autowired
     private ProdutoImagensService produtoImagensService;
 
     @GetMapping("/")
     public List<ProdutoImagens> buscarTodos() {
-        return produtoImagensService.buscarTodos();
+       return produtoImagensService.buscarTodos();
     }
 
     @PostMapping("/")
-    public ProdutoImagens inserir(@RequestParam("idProduto") Long idProduto, @RequestParam("file") MultipartFile file) {
-        return produtoImagensService.inserir(idProduto, file);
+    public ProdutoImagens inserir(@RequestParam("idProduto") Long idProduto,@RequestParam("file") MultipartFile file) {
+        return produtoImagensService.inserir(idProduto,file);
     }
 
     @PutMapping("/")

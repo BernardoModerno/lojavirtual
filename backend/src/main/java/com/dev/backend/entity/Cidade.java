@@ -24,6 +24,7 @@ public class Cidade {
     private Long id;
 
     private String nome;
+
     @ManyToOne
     @JoinColumn(name="idEstado")
     private Estado estado;

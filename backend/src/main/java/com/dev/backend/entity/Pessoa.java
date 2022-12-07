@@ -34,28 +34,32 @@ public class Pessoa {
 
     private String email;
 
+    private String codigoRecuperacaoSenha;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataEnvioCodigo;
+
     private String senha;
 
     private String endereco;
 
     private String cep;
-
     @ManyToOne
-    @JoinColumn(name = "idCidade")
+    @JoinColumn(name="idCidade")
     private Cidade cidade;
 
-    @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @Setter(value = AccessLevel.NONE)
     private List<PermissaoPessoa> permissaoPessoas;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
-
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 
-    public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
-        for (PermissaoPessoa p : pp) {
+    public void setPermissaoPessoas(List<PermissaoPessoa> pp){
+        for(PermissaoPessoa p:pp){
             p.setPessoa(this);
         }
         this.permissaoPessoas = pp;
